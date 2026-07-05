@@ -1,0 +1,412 @@
+<html lang="ja"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>にいみ農園 | 米づくりのある暮らし</title>
+<style>
+  :root{
+    --green-dark:#4a5d3a;
+    --green:#6b8552;
+    --green-light:#a8c090;
+    --beige:#f5f0e6;
+    --beige-dark:#e8dfc8;
+    --brown:#8b6f47;
+    --cream:#fffdf8;
+    --text:#3c3529;
+    --gold:#c9a24b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.9;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  header{
+    position:fixed;top:0;left:0;right:0;
+    background:rgba(255,253,248,0.92);
+    backdrop-filter:blur(4px);
+    z-index:100;
+    border-bottom:1px solid var(--beige-dark);
+  }
+  .nav-wrap{
+    max-width:1100px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;
+  }
+  .logo{font-size:1.3rem;letter-spacing:0.1em;color:var(--green-dark);font-weight:bold;}
+  .logo span{color:var(--gold);}
+  nav ul{list-style:none;display:flex;gap:28px;}
+  nav a{font-size:0.95rem;color:var(--green-dark);letter-spacing:0.05em;}
+  nav a:hover{color:var(--gold);}
+  .menu-btn{display:none;background:none;border:none;font-size:1.5rem;color:var(--green-dark);cursor:pointer;}
+
+  .hero{
+    margin-top:64px;
+    min-height:88vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:60px 24px;
+    background:
+      linear-gradient(180deg, rgba(74,93,58,0.55), rgba(74,93,58,0.35)),
+      repeating-linear-gradient(180deg, #7c9a5f 0 40px, #6b8552 40px 80px);
+    color:#fffdf8;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08), transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 40%);
+  }
+  .hero-inner{position:relative;z-index:2;}
+  .hero .kicker{
+    letter-spacing:0.35em;font-size:0.85rem;margin-bottom:20px;opacity:0.9;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,5vw,3.6rem);
+    letter-spacing:0.08em;
+    margin-bottom:24px;
+    text-shadow:0 2px 12px rgba(0,0,0,0.25);
+  }
+  .hero p{
+    font-size:1.05rem;
+    max-width:520px;
+    margin:0 auto 36px;
+    opacity:0.95;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    padding:14px 38px;
+    border-radius:30px;
+    font-size:0.95rem;
+    letter-spacing:0.1em;
+    box-shadow:0 6px 18px rgba(0,0,0,0.2);
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,0.25);}
+
+  section{padding:90px 24px;}
+  .inner{max-width:1000px;margin:0 auto;}
+  .section-head{text-align:center;margin-bottom:56px;}
+  .section-head .en{
+    display:block;color:var(--green-light);letter-spacing:0.3em;font-size:0.8rem;margin-bottom:10px;
+  }
+  .section-head h2{
+    font-size:2rem;color:var(--green-dark);letter-spacing:0.1em;position:relative;display:inline-block;
+  }
+  .section-head h2::after{
+    content:"";display:block;width:48px;height:2px;background:var(--gold);margin:16px auto 0;
+  }
+
+  #about{background:var(--cream);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  }
+  .about-img{
+    aspect-ratio:4/3;
+    border-radius:8px;
+    background:linear-gradient(135deg,var(--green-light),var(--green));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:0.9rem;letter-spacing:0.1em;
+    position:relative;overflow:hidden;
+  }
+  .about-img::after{
+    content:"🌾";font-size:4rem;position:absolute;opacity:0.5;
+  }
+  .about-text p{margin-bottom:18px;color:var(--text);}
+  .about-text .lead{font-size:1.15rem;color:var(--green-dark);font-weight:bold;margin-bottom:22px;}
+
+  #products{background:var(--beige);}
+  .product-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:32px;
+  }
+  .product-card{
+    background:var(--cream);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 18px rgba(74,93,58,0.08);
+    transition:transform 0.25s, box-shadow 0.25s;
+  }
+  .product-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(74,93,58,0.15);}
+  .product-img{
+    height:170px;
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.6rem;color:#fffdf8;
+  }
+  .product-body{padding:24px;}
+  .product-body h3{color:var(--green-dark);margin-bottom:10px;font-size:1.15rem;}
+  .product-body p{font-size:0.92rem;color:#5a5142;margin-bottom:14px;}
+  .price{color:var(--gold);font-weight:bold;font-size:1.1rem;}
+
+  .product-intro{text-align:center;max-width:600px;margin:0 auto 48px;color:#5a5142;font-size:0.98rem;}
+  .size-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:24px;
+  }
+  .size-card{
+    background:var(--cream);
+    border-radius:10px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 4px 18px rgba(74,93,58,0.08);
+    transition:transform 0.25s, box-shadow 0.25s;
+    position:relative;
+  }
+  .size-card:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(74,93,58,0.15);}
+  .size-card .badge{
+    position:absolute;top:-10px;right:14px;
+    background:var(--gold);color:#fff;font-size:0.7rem;
+    padding:4px 10px;border-radius:20px;letter-spacing:0.05em;
+  }
+  .size-card .weight{font-size:1.8rem;color:var(--green-dark);font-weight:bold;margin-bottom:6px;}
+  .size-card .weight span{font-size:1rem;font-weight:normal;}
+  .size-card .note{font-size:0.82rem;color:var(--brown);margin-bottom:10px;}
+  .size-card .price{font-size:1rem;}
+
+  #farm-shop{background:var(--cream);}
+  .shop-box{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;
+    background:var(--beige);
+    border-radius:12px;
+    padding:48px;
+  }
+  .shop-box h3{color:var(--green-dark);font-size:1.3rem;margin-bottom:16px;}
+  .info-list{list-style:none;}
+  .info-list li{
+    display:flex;gap:16px;padding:10px 0;border-bottom:1px dashed var(--beige-dark);
+    font-size:0.95rem;
+  }
+  .info-list li:last-child{border-bottom:none;}
+  .info-list .label{
+    min-width:96px;color:var(--brown);font-weight:bold;flex-shrink:0;
+  }
+
+  #news{background:var(--beige);}
+  .news-list{max-width:760px;margin:0 auto;}
+  .news-item{
+    display:flex;gap:28px;padding:22px 0;border-bottom:1px solid var(--beige-dark);
+    align-items:baseline;
+  }
+  .news-item .date{color:var(--gold);font-size:0.85rem;letter-spacing:0.05em;min-width:100px;}
+  .news-item .tag{
+    font-size:0.75rem;background:var(--green-light);color:#fff;padding:3px 10px;border-radius:20px;margin-right:14px;
+  }
+  .news-item p{color:var(--text);font-size:0.95rem;display:inline;}
+
+  #contact{
+    background:linear-gradient(135deg,var(--green-dark),var(--green));
+    color:#fffdf8;text-align:center;
+  }
+  #contact .section-head h2{color:#fffdf8;}
+  #contact .section-head .en{color:rgba(255,255,255,0.7);}
+  #contact p{max-width:520px;margin:0 auto 32px;opacity:0.95;}
+  .contact-details{
+    display:flex;justify-content:center;gap:60px;flex-wrap:wrap;margin-bottom:36px;
+  }
+  .contact-details div{font-size:0.95rem;}
+  .contact-details .label{display:block;font-size:0.8rem;letter-spacing:0.1em;opacity:0.75;margin-bottom:6px;}
+  .btn-outline{
+    display:inline-block;border:1px solid #fffdf8;color:#fffdf8;
+    padding:13px 36px;border-radius:30px;font-size:0.95rem;letter-spacing:0.1em;
+  }
+  .btn-outline:hover{background:#fffdf8;color:var(--green-dark);}
+
+  footer{
+    background:#3c3529;color:rgba(255,255,255,0.6);
+    text-align:center;padding:32px 24px;font-size:0.82rem;letter-spacing:0.05em;
+  }
+  footer span{color:var(--gold);}
+
+  @media(max-width:800px){
+    nav{display:none;}
+    .menu-btn{display:block;}
+    .about-grid{grid-template-columns:1fr;}
+    .shop-box{grid-template-columns:1fr;padding:32px 24px;}
+    section{padding:64px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo">にいみ<span>農園</span></div>
+    <nav>
+      <ul>
+        <li><a href="#about">農園について</a></li>
+        <li><a href="#products">商品紹介</a></li>
+        <li><a href="#farm-shop">直売情報</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="kicker">NIIMI FARM</span>
+    <h1>大地の恵み、<br>ひと粒ひと粒に想いを込めて。</h1>
+    <p>にいみ農園は、豊かな自然の中でこしひかりを育てています。<br>丁寧な栽培でお届けする、安心のお米をぜひご賞味ください。</p>
+    <a href="#products" class="btn">商品を見る</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="inner">
+    <div class="section-head">
+      <span class="en">ABOUT US</span>
+      <h2>にいみ農園について</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-img">FARM PHOTO</div>
+      <div class="about-text">
+        <p class="lead">自然と共に、丁寧なお米づくりを。</p>
+        <p>にいみ農園では、四季の移ろいを大切にしながら、こだわりのこしひかりを栽培しています。土づくりから収穫まで、一つひとつの工程に手間を惜しまず、安心して食べていただけるお米をお届けすることを心がけています。</p>
+        <p>代々受け継がれてきた田んぼを守りながら、地域の恵みと共に、これからも真心を込めたものづくりを続けてまいります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="inner">
+    <div class="section-head">
+      <span class="en">PRODUCTS</span>
+      <h2>商品紹介</h2>
+    </div>
+    <p class="product-intro">にいみ農園自慢の「こしひかり」を、量り売りサイズでご用意しています。まずは2kgのお試し版から、ご家庭用の5kg・10kg、大容量の15kg・30kgまでお選びいただけます。</p>
+    <div class="size-grid">
+      <div class="size-card">
+        <span class="badge">お試し版</span>
+        <div class="weight">2<span>kg</span></div>
+        <div class="note">初回1回限り</div>
+        <div class="price">価格はお問い合わせください</div>
+      </div>
+      <div class="size-card">
+        <div class="weight">5<span>kg</span></div>
+        <div class="note">&nbsp;</div>
+        <div class="price">価格はお問い合わせください</div>
+      </div>
+      <div class="size-card">
+        <div class="weight">10<span>kg</span></div>
+        <div class="note">&nbsp;</div>
+        <div class="price">価格はお問い合わせください</div>
+      </div>
+      <div class="size-card">
+        <div class="weight">15<span>kg</span></div>
+        <div class="note">&nbsp;</div>
+        <div class="price">価格はお問い合わせください</div>
+      </div>
+      <div class="size-card">
+        <div class="weight">30<span>kg</span></div>
+        <div class="note">&nbsp;</div>
+        <div class="price">価格はお問い合わせください</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a href="https://forms.gle/t4M7suGKpxNjZnnx9" target="_blank" rel="noopener" class="btn">お米購入申し込みフォーム</a>
+    </div>
+  </div>
+</section>
+
+<section id="farm-shop">
+  <div class="inner">
+    <div class="section-head">
+      <span class="en">FARM SHOP</span>
+      <h2>直売所のご案内</h2>
+    </div>
+    <div class="shop-box">
+      <div>
+        <h3>直売所情報</h3>
+        <ul class="info-list">
+          <li><span class="label">住所</span><span>栃木県下野市上古山584</span></li>
+          <li><span class="label">営業時間</span><span>9:00〜18:00</span></li>
+          <li><span class="label">定休日</span><span>土曜日・日曜日</span></li>
+          <li><span class="label">駐車場</span><span>あり</span></li>
+          <li><span class="label">電話番号</span><span>0285-52-1512</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>お米購入申し込み</h3>
+        <ul class="info-list">
+          <li><span class="label">直売所</span><span>農園に併設の直売所にてご購入いただけます</span></li>
+          <li><span class="label">お電話</span><span>お電話でのご注文も承っております</span></li>
+          <li><span class="label">Web申し込み</span><span>下記フォームからもお申し込みいただけます</span></li>
+        </ul>
+        <a href="https://forms.gle/t4M7suGKpxNjZnnx9" target="_blank" rel="noopener" class="btn" style="margin-top:20px;">お米購入申し込みフォーム</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="inner">
+    <div class="section-head">
+      <span class="en">NEWS</span>
+      <h2>お知らせ</h2>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="date">2026.06.20</span>
+        <span class="tag">お知らせ</span>
+        <p>今年の田植えを無事終えました。実りの秋に向けて大切に育ててまいります。</p>
+      </div>
+      <div class="news-item">
+        <span class="date">2026.05.10</span>
+        <span class="tag">直売所</span>
+        <p>直売所の営業時間を変更いたしました。詳しくはお問い合わせください。</p>
+      </div>
+      <div class="news-item">
+        <span class="date">2026.04.01</span>
+        <span class="tag">お知らせ</span>
+        <p>ホームページを開設いたしました。今後の更新情報もこちらでお知らせします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="inner">
+    <div class="section-head">
+      <span class="en">CONTACT</span>
+      <h2>お問い合わせ</h2>
+    </div>
+    <p>商品のご注文やご質問など、お気軽にお問い合わせください。</p>
+    <div class="contact-details">
+      <div>
+        <span class="label">TEL</span>
+        0285-52-1512
+      </div>
+      <div>
+        <span class="label">MAIL</span>
+        213nouen@gmail.com
+      </div>
+      <div>
+        <span class="label">住所</span>
+        栃木県下野市上古山584
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:213nouen@gmail.com" class="btn-outline">メールでお問い合わせ</a>
+      <a href="https://forms.gle/t4M7suGKpxNjZnnx9" target="_blank" rel="noopener" class="btn-outline">お米購入申し込みフォーム</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <span>にいみ農園</span>. All rights reserved.
+</footer>
+
+
+
+</body></html>
