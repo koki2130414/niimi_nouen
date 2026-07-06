@@ -1,1 +1,5 @@
 
+User-agent: *
+Allow: /
+
+Sitemap: https://koki2130414.github.io/niimi_nouen/sitemap.xml
