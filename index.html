@@ -1,62 +1,7 @@
-
-
-<html lang="ja">
-
-  <script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"Organization",
-"name":"にいみ農園",
-"url":"https://koki2130414.github.io/niimi_nouen/",
-"logo":"https://koki2130414.github.io/niimi_nouen/logo.png",
-"founder":"新見康樹",
-"address":{
-"@type":"PostalAddress",
-"addressRegion":"栃木県",
-"addressLocality":"下野市"
-}
-}
-</script>
-  
-  <head>
+<html lang="ja"><head>
 <meta charset="UTF-8">
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WE05PS0646"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-WE05PS0646');
-</script>
-    
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="fWpTt70-RAO-4Hs5N4fbHcgCv9uqwhfmgOc35e7Ls5E" />
-  
-<title>にいみ農園｜栃木県産コシヒカリ直販・農業体験</title>
-
-<meta name="description"
-content="栃木県下野市のにいみ農園です。コシヒカリの直販、農業体験、教育プログラムを運営しています。">
-
-<meta name="keywords"
-content="にいみ農園,新見康樹,栃木県,米,コシヒカリ,農家,農業体験">
-
-  
-
-<meta name="author"
-content="新見康樹">
-
-  <link rel="canonical" href="https://koki2130414.github.io/niimi_nouen/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="にいみ農園｜栃木県産コシヒカリ直販">
-<meta property="og:description" content="栃木県下野市のにいみ農園。コシヒカリの直販・農業体験・教育プログラムを運営しています。">
-<meta property="og:url" content="https://koki2130414.github.io/niimi_nouen/">
-<meta property="og:image" content="https://koki2130414.github.io/niimi_nouen/og-image.jpg">
-
-<meta property="og:site_name" content="にいみ農園">
-
-<meta name="twitter:card" content="summary_large_image">
-  
+<title>にいみ農園 | 米づくりのある暮らし</title>
 <style>
   :root{
     --green-dark:#4a5d3a;
@@ -178,6 +123,31 @@ content="新見康樹">
   .about-text p{margin-bottom:18px;color:var(--text);}
   .about-text .lead{font-size:1.15rem;color:var(--green-dark);font-weight:bold;margin-bottom:22px;}
 
+  .staff-list{
+    margin-top:56px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+  }
+  .staff-card{
+    display:flex;align-items:center;gap:22px;
+    background:var(--beige);
+    border-radius:12px;
+    padding:26px;
+  }
+  .staff-photo{
+    width:96px;height:96px;flex-shrink:0;
+    border-radius:50%;
+    overflow:hidden;
+    background:linear-gradient(135deg,var(--green-light),var(--green));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:1.8rem;
+  }
+  .staff-photo img{width:100%;height:100%;object-fit:cover;}
+  .staff-info .role{font-size:0.8rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:4px;}
+  .staff-info .name{font-size:1.1rem;color:var(--green-dark);font-weight:bold;margin-bottom:6px;}
+  .staff-info p{font-size:0.88rem;color:#5a5142;margin:0;}
+  @media(max-width:500px){.staff-card{flex-direction:column;text-align:center;}}
+
   #products{background:var(--beige);}
   .product-grid{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -290,19 +260,7 @@ content="新見康樹">
   }
 </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WE05PS0646"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-WE05PS0646');
-</script>
-  
-
-  <meta name="google-site-verification" content="fWpTt70-RAO-4Hs5N4fbHcgCv9uqwhfmgOc35e7Ls5E" />
-  <body>
+<body>
 
 <header>
   <div class="nav-wrap">
@@ -342,6 +300,32 @@ content="新見康樹">
         <p>代々受け継がれてきた田んぼを守りながら、地域の恵みと共に、これからも真心を込めたものづくりを続けてまいります。</p>
       </div>
     </div>
+    <div class="staff-list">
+      <div class="staff-card">
+        <div class="staff-photo">🧑&zwj;🌾</div>
+        <div class="staff-info">
+          <div class="role">経営主</div>
+          <div class="name">新見 康之</div>
+          <p>農園の経営と栽培管理を担当しています。</p>
+        </div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo">🧑&zwj;🌾</div>
+        <div class="staff-info">
+          <div class="role">STAFF</div>
+          <div class="name">新見 康樹</div>
+          <p>コンバインでの稲刈りをはじめ、田んぼの管理を担当しています。</p>
+        </div>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo">🧑&zwj;🌾</div>
+        <div class="staff-info">
+          <div class="role">STAFF</div>
+          <div class="name">新見 朋子</div>
+          <p>直売所・事務を担当しています。</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -351,37 +335,10 @@ content="新見康樹">
       <span class="en">PRODUCTS</span>
       <h2>商品紹介</h2>
     </div>
-    <p class="product-intro">にいみ農園自慢の「こしひかり」を、量り売りサイズでご用意しています。まずは2kgのお試し版から、ご家庭用の5kg・10kg、大容量の15kg・30kgまでお選びいただけます。</p>
-    <div class="size-grid">
-      <div class="size-card">
-        <span class="badge">お試し版</span>
-        <div class="weight">2<span>kg</span></div>
-        <div class="note">初回1回限り</div>
-        <div class="price">価格はお問い合わせください</div>
-      </div>
-      <div class="size-card">
-        <div class="weight">5<span>kg</span></div>
-        <div class="note">&nbsp;</div>
-        <div class="price">価格はお問い合わせください</div>
-      </div>
-      <div class="size-card">
-        <div class="weight">10<span>kg</span></div>
-        <div class="note">&nbsp;</div>
-        <div class="price">価格はお問い合わせください</div>
-      </div>
-      <div class="size-card">
-        <div class="weight">15<span>kg</span></div>
-        <div class="note">&nbsp;</div>
-        <div class="price">価格はお問い合わせください</div>
-      </div>
-      <div class="size-card">
-        <div class="weight">30<span>kg</span></div>
-        <div class="note">&nbsp;</div>
-        <div class="price">価格はお問い合わせください</div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:44px;">
-      <a href="https://forms.gle/t4M7suGKpxNjZnnx9" target="_blank" rel="noopener" class="btn">お米購入申し込みフォーム</a>
+    <p class="product-intro">にいみ農園自慢の「こしひかり」を、2kgのお試し版から5kg・10kg・15kg・30kgまでのサイズでご用意する予定です。</p>
+    <div style="text-align:center;background:var(--cream);border-radius:10px;padding:40px 24px;box-shadow:0 4px 18px rgba(74,93,58,0.08);">
+      <p style="color:var(--brown);font-size:1.05rem;font-weight:bold;">現在、お米の販売は行っておりません。</p>
+      <p style="color:#5a5142;font-size:0.9rem;margin-top:10px;">販売開始時期などはお知らせにて掲載いたします。</p>
     </div>
   </div>
 </section>
@@ -404,13 +361,10 @@ content="新見康樹">
         </ul>
       </div>
       <div>
-        <h3>お米購入申し込み</h3>
+        <h3>お米の販売について</h3>
         <ul class="info-list">
-          <li><span class="label">直売所</span><span>農園に併設の直売所にてご購入いただけます</span></li>
-          <li><span class="label">お電話</span><span>お電話でのご注文も承っております</span></li>
-          <li><span class="label">Web申し込み</span><span>下記フォームからもお申し込みいただけます</span></li>
+          <li><span>現在、お米の販売は行っておりません。販売を開始する際には、お知らせにて掲載いたします。</span></li>
         </ul>
-        <a href="https://forms.gle/t4M7suGKpxNjZnnx9" target="_blank" rel="noopener" class="btn" style="margin-top:20px;">お米購入申し込みフォーム</a>
       </div>
     </div>
   </div>
@@ -424,14 +378,19 @@ content="新見康樹">
     </div>
     <div class="news-list">
       <div class="news-item">
-        <span class="date">2026.06.20</span>
-        <span class="tag">お知らせ</span>
-        <p>今年の田植えを無事終えました。実りの秋に向けて大切に育ててまいります。</p>
+        <span class="date">2026.07.07</span>
+        <span class="tag">イベント</span>
+        <p>第一回農業体験イベントを無料開催します！お申し込みは<a href="https://forms.gle/4HFCCkpuunuZnd5t5" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:underline;">こちらのフォーム</a>から。</p>
       </div>
       <div class="news-item">
-        <span class="date">2026.05.10</span>
+        <span class="date">2026.07.01</span>
+        <span class="tag">お知らせ</span>
+        <p>今年の田植えに向けて準備を進めています。おいしいこしひかりをお届けできるよう、大切に育ててまいります。</p>
+      </div>
+      <div class="news-item">
+        <span class="date">2026.06.15</span>
         <span class="tag">直売所</span>
-        <p>直売所の営業時間を変更いたしました。詳しくはお問い合わせください。</p>
+        <p>直売所は現在営業しておりません。営業を開始する際は、こちらでお知らせいたします。</p>
       </div>
       <div class="news-item">
         <span class="date">2026.04.01</span>
@@ -448,7 +407,7 @@ content="新見康樹">
       <span class="en">CONTACT</span>
       <h2>お問い合わせ</h2>
     </div>
-    <p>商品のご注文やご質問など、お気軽にお問い合わせください。</p>
+    <p>ご質問など、お気軽にお問い合わせください。</p>
     <div class="contact-details">
       <div>
         <span class="label">TEL</span>
@@ -463,10 +422,7 @@ content="新見康樹">
         栃木県下野市上古山584
       </div>
     </div>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="mailto:213nouen@gmail.com" class="btn-outline">メールでお問い合わせ</a>
-      <a href="https://forms.gle/t4M7suGKpxNjZnnx9" target="_blank" rel="noopener" class="btn-outline">お米購入申し込みフォーム</a>
-    </div>
+    <a href="mailto:213nouen@gmail.com" class="btn-outline">メールでお問い合わせ</a>
   </div>
 </section>
 
